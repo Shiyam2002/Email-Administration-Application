@@ -6,8 +6,10 @@ import java.util.Scanner;
 public class Email {
 	private String firstName;
 	private String lastName;
+	private String email;
 	private String password;
 	private String department;
+	private String company = "company.com";
 	private int emailboxCapacity;
 	private String alternateEmail;
 	
@@ -21,6 +23,9 @@ public class Email {
 		
 		//calling the randomPassword method to generate password
 		this.password = randomPassword(8);
+		
+		//Creating a Email
+		email = firstName + "." + lastName + "@" + department + "." + company;
 	}
 	
 	//Asking for Department
