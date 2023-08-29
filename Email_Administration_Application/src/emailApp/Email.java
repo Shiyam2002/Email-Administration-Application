@@ -9,6 +9,10 @@ public class Email {
 	private String alternateEmail;
 	
 	//Constructor for receiving first name and last name
+	public Email(String firstName, String lastName) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+	}
 	
 	//Asking for Department
 	
