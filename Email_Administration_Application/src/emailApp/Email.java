@@ -1,5 +1,6 @@
 package emailApp;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Email {
@@ -17,6 +18,9 @@ public class Email {
 		
 		//Calling a Method for asking  the department - return the Department
 		this.department = getDepartment();
+		
+		//calling the randomPassword method to generate password
+		this.password = randomPassword(8);
 	}
 	
 	//Asking for Department
@@ -40,6 +44,27 @@ public class Email {
 	}
 	
 	//To Generate a random password
+	private String randomPassword(int lenght) {
+		String lowerCaseLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		String capitalCaseLetter = "abcdefghijklmnopqrstuvwxyz";
+		String specialCharacters = "!@#$";
+		String numbers = "1234567890";
+		String combinedChars = lowerCaseLetter + capitalCaseLetter 
+								+ specialCharacters + numbers;
+		Random random = new Random();
+		char[] password = new char[lenght];
+		
+		password[0] = lowerCaseLetter.charAt(random.nextInt(lowerCaseLetter.length()));
+		password[1] = numbers.charAt(random.nextInt(numbers.length()));
+		password[2] = capitalCaseLetter.charAt(random.nextInt(capitalCaseLetter.length()));
+		password[3] = specialCharacters.charAt(random.nextInt(specialCharacters.length()));
+		
+		for(int i=4;i<lenght;i++) {
+			password[i] = combinedChars.charAt(random.nextInt(combinedChars.length()));
+		}
+		
+		return new String(password);
+	}
 	
 	//Set a Alternate Email
 	
